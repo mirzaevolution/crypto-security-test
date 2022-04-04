@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-encrypt-decrypt',
@@ -9,24 +10,17 @@ import * as CryptoJS from 'crypto-js';
 export class EncryptDecryptComponent{
 
   cipherText = '';
-  cipherPassword = '';
   decryptResult = '';
   plainText = '';
-  plainPassword = '';
   encryptResult = '';
-
-  iv = 'En9BbHwGmuch2EDqweF/Kw==';
-  salt = '0uFbhTBMpkhD3Rx6ND/GghWZXoTufH9UnZHhnSJP3j8=';
-
 
   encrypt(){
     this.plainText = this.plainText.trim();
-    this.plainPassword = this.plainPassword.trim();
-    if(this.plainText!='' && this.plainPassword != ''){
+    if(this.plainText!=''){
       try{
         let ivWordArray = this.getInitVectorWordArray();
         let saltWordArray = this.getSaltWordArray();
-        let passwordWordArray = this.getPasswordWordArray(this.plainPassword, saltWordArray);
+        let passwordWordArray = this.getPasswordWordArray(environment.securityPipeline.password, saltWordArray);
         let encryptedCipherParams =  CryptoJS.AES.encrypt(this.plainText, passwordWordArray, {
           iv: ivWordArray
         });
@@ -43,12 +37,11 @@ export class EncryptDecryptComponent{
 
   decrypt(){
     this.cipherText = this.cipherText.trim();
-    this.cipherPassword = this.cipherPassword.trim();
-    if(this.cipherText!='' && this.cipherPassword!=''){
+    if(this.cipherText!=''){
       try{
         let ivWordArray = this.getInitVectorWordArray();
         let saltWordArray = this.getSaltWordArray();
-        let passwordWordArray = this.getPasswordWordArray(this.cipherPassword, saltWordArray);
+        let passwordWordArray = this.getPasswordWordArray(environment.securityPipeline.password, saltWordArray);
         let decryptedCipherParams = CryptoJS.AES.decrypt(this.cipherText, passwordWordArray,{
           iv: ivWordArray
         });
@@ -74,10 +67,10 @@ export class EncryptDecryptComponent{
   }
 
   getInitVectorWordArray(): CryptoJS.lib.WordArray{
-    return CryptoJS.enc.Base64.parse(this.iv);
+    return CryptoJS.enc.Base64.parse(environment.securityPipeline.iv);
   }
 
   getSaltWordArray() : CryptoJS.lib.WordArray{
-    return CryptoJS.enc.Base64.parse(this.salt);
+    return CryptoJS.enc.Base64.parse(environment.securityPipeline.salt);
   }
 }

@@ -8,10 +8,6 @@
       <input type="text" class="form-control" [(ngModel)]="plainText"/>
   </div>
   <div class="m-3">
-    <label>Enter password</label>
-    <input type="text" class="form-control" [(ngModel)]="plainPassword"/>
-</div>
-  <div class="m-3">
       <button class="btn btn-primary" (click)="encrypt()">Encrypt</button>
   </div>
   <div class="m-3">
@@ -29,10 +25,6 @@
         <label>Enter text to decrypt</label>
         <input type="text" class="form-control" [(ngModel)]="cipherText"/>
     </div>
-    <div class="m-3">
-      <label>Enter password</label>
-      <input type="text" class="form-control" [(ngModel)]="cipherPassword"/>
-  </div>
     <div class="m-3">
         <button class="btn btn-primary" (click)="decrypt()">Decrypt</button>
     </div>

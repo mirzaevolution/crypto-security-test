@@ -4,19 +4,19 @@
   <div class="col-md-6 mt-2 text-center">
     <h3>Post Request</h3>
     <div class="mt-5">
-      <button class="btn btn-primary">Send Post Request</button>
+      <button class="btn btn-primary" (click)="postRequest()">Send Post Request</button>
     </div>
     <div class="card border border-info mt-5 response">
-      {{getResponse}}
+      {{postResponse}}
     </div>
   </div>
   <div class="col-md-6 mt-2 text-center">
     <h3>Get Request</h3>
     <div class="mt-5">
-      <button class="btn btn-primary">Send Get Request</button>
+      <button class="btn btn-primary" (click)="getRequest()">Send Get Request</button>
     </div>
     <div class="card border border-info mt-5 response">
-        {{postResponse}}
+        {{getResponse}}
     </div>
   </div>
 </div>

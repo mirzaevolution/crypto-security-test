@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  securityPipeline:{
+    iv: 'En9BbHwGmuch2EDqweF/Kw==',
+    salt: '0uFbhTBMpkhD3Rx6ND/GghWZXoTufH9UnZHhnSJP3j8=',
+    password: 'QmRscnAXnDzsnYayo0/HlnCMdVFWXoxkz/NVeIw/7hU='
+  },
+  gatewayAddress: 'https://localhost:44309'
 };
 
 /*

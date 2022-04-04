@@ -1,6 +1,6 @@
 import { EncryptDecryptComponent } from './components/encrypt-decrypt/encrypt-decrypt.component';
 import { AppComponent } from './app.component';
-import { MeetingEventsComponent } from './components/meeting-events/meeting-events.component';
+import { PingComponent } from './components/ping/ping.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path:'meeting-events',
-    component: MeetingEventsComponent
+    path:'ping',
+    component: PingComponent
   },
   {
     path: '', redirectTo: '/encrypt-decrypt', pathMatch: 'full'

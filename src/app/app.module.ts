@@ -6,13 +6,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from  '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MeetingEventsComponent } from './components/meeting-events/meeting-events.component';
+import { PingComponent } from './components/ping/ping.component';
 import { EncryptDecryptComponent } from './components/encrypt-decrypt/encrypt-decrypt.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MeetingEventsComponent,
+    PingComponent,
     EncryptDecryptComponent
   ],
   imports: [
